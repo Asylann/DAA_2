@@ -36,7 +36,7 @@ mvn exec:java -Dexec.mainClass="cli.BenchmarkRunner"
 
 Run with custom size:
 ```bash
-mvn exec:java -Dexec.mainClass="cli.BenchmarkRunner" -Dexec.args="5000"
+mvnd exec:java "-Dexec.mainClass=cli.BenchmarkRunner" "-Dexec.args=1000"
 ```
 
 ### Running Tests

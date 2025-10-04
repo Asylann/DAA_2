@@ -28,8 +28,13 @@ public class BenchmarkRunner {
     }
 
     public void runBenchmark(int size) {
+        boolean fileExists = new File(RESULTS_FILE).exists();
         
-        try (PrintWriter writer = new PrintWriter(new FileWriter(RESULTS_FILE, true))) {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(RESULTS_FILE, true))) { // true for append mode
+            if (!fileExists) {
+                writer.println(PerformanceTracker.getCsvHeader());
+            }
+
             System.out.printf("Running benchmark for size %d...%n", size);
             int[] arr = generateRandomArray(size);
             
