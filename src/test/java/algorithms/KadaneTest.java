@@ -77,16 +77,16 @@ class KadaneTest {
     void testLargeInput() {
         int size = 10000;
         int[] arr = new int[size];
-        Random random = new Random(42); // Fixed seed for reproducibility
+        Random random = new Random(42);
         for (int i = 0; i < size; i++) {
-            arr[i] = random.nextInt(201) - 100; // Random numbers between -100 and 100
+            arr[i] = random.nextInt(201) - 100; 
         }
         
         tracker.startTimer();
         int result = kadane.findMaxSubarraySum(arr);
         tracker.stopTimer();
         
-        assertTrue(result >= -100); // Basic sanity check
-        assertTrue(tracker.getExecutionTimeMillis() < 1000); // Should complete within 1 second
+        assertTrue(result >= -100);
+        assertTrue(tracker.getExecutionTimeMillis() < 1000);
     }
 }

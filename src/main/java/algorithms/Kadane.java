@@ -25,15 +25,33 @@ public class Kadane {
             this.endIndex = -1;
             return 0;
         }
-
-        int maxSum = arr[0];    
-        int currentSum = arr[0]; 
-        int tempStart = 0;        
+        boolean allPositive = true;
+        int totalSum = arr[0];
+        tracker.incrementArrayAccess();
+        
+        for (int i = 1; i < arr.length && allPositive; i++) {
+            tracker.incrementArrayAccess();
+            if (arr[i] < 0) {
+                allPositive = false;
+            }
+            totalSum += arr[i];
+        }
+        
+        // If all numbers are positive, the entire array is the maximum subarray
+        if (allPositive) {
+            this.startIndex = 0;
+            this.endIndex = arr.length - 1;
+            return totalSum;
+        }
+        
+        int maxSum = arr[0];
+        int currentSum = arr[0];
+        int tempStart = 0;
         this.startIndex = 0;
         this.endIndex = 0;
-
+        
         tracker.incrementArrayAccess();
-
+        
         for (int i = 1; i < arr.length; i++) {
             tracker.incrementArrayAccess(); 
             tracker.incrementComparison();  
