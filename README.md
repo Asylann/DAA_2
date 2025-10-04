@@ -31,7 +31,7 @@ Kadane's algorithm solves the maximum subarray sum problem by maintaining two va
 ### Running Benchmarks
 Run with default size (1000):
 ```bash
-mvn exec:java -Dexec.mainClass="cli.BenchmarkRunner"
+mvnd exec:java "-Dexec.mainClass=cli.BenchmarkRunner"
 ```
 
 Run with custom size:
@@ -41,7 +41,7 @@ mvnd exec:java "-Dexec.mainClass=cli.BenchmarkRunner" "-Dexec.args=1000"
 
 ### Running Tests
 ```bash
-mvn test
+mvnd test
 ```
 
 ## Performance Metrics
@@ -92,21 +92,21 @@ The implementation includes comprehensive tests for:
 ## Git Commit Storyline
 
 PS C:\Users\usena\IdeaProjects\assignment2-Kadane> git log --oneline
-3dn32nd release: v1.0 with complete implementation
-b8ac40d (HEAD -> master, tag: v1.0, origin/master) Fixed tests and also added plots and analysis report
-8fab746 Some optimizations
-7c9eb80 docs(readme): usage instructions and complexity analysis
-e668257 Merge pull request #5 from Asylann/feat/optimization
-6b189bb (origin/feat/optimization, feat/optimization) Optimization such as setHeaders to csv and check  for all posistive in algo
-da4de16 Merge pull request #4 from Asylann/feat/cli
-a8eea00 (origin/feat/cli, feat/cli) CLI with unput size was added
-0ac3553 Merge pull request #3 from Asylann/feat/algorithm
-5f11f38 (origin/feat/algorithm, feat/algorithm) Tests were added
-733df83 Merge pull request #2 from Asylann/feat/metrics
-dabc52d (origin/feat/metrics, feat/metrics) proper PerfomanceTracker added
-d581ef7 Merge pull request #1 from Asylann/feat/algorithm
-cd52915 Added TaskTracker for algo
-75dfc1a First init and already ready algo but can be improvement
+- 3dn32nd release: v1.0 with complete implementation
+- b8ac40d (HEAD -> master, tag: v1.0, origin/master) Fixed tests and also added plots and - - analysis report
+- 8fab746 Some optimizations
+- 7c9eb80 docs(readme): usage instructions and complexity analysis
+- e668257 Merge pull request #5 from Asylann/feat/optimization
+- 6b189bb (origin/feat/optimization, feat/optimization) Optimization such as setHeaders to csv and check  for all posistive in algo
+- da4de16 Merge pull request #4 from Asylann/feat/cli
+- a8eea00 (origin/feat/cli, feat/cli) CLI with unput size was added
+- 0ac3553 Merge pull request #3 from Asylann/feat/algorithm
+- 5f11f38 (origin/feat/algorithm, feat/algorithm) Tests were added
+- 733df83 Merge pull request #2 from Asylann/feat/metrics
+- dabc52d (origin/feat/metrics, feat/metrics) proper PerfomanceTracker added
+- d581ef7 Merge pull request #1 from Asylann/feat/algorithm
+- cd52915 Added TaskTracker for algo
+- 75dfc1a First init and already ready algo but can be improvement
 
 ## Author
 Usen Asylan
