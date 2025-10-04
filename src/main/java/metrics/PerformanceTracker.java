@@ -57,4 +57,8 @@ public class PerformanceTracker {
             getExecutionTimeMillis()
         );
     }
+
+    public static String getCsvHeader() {
+        return "InputSize;Comparisons;ArrayAccesses;DurationMs";
+    }
 }
