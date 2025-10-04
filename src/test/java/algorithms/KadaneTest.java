@@ -72,6 +72,24 @@ class KadaneTest {
         assertEquals(6, kadane.getEndIndex());
     }
 
+    // Sorted Data Tests
+    @Test
+    void testSortedArray() {
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        assertEquals(55, kadane.findMaxSubarraySum(arr));
+        assertEquals(0, kadane.getStartIndex());
+        assertEquals(9, kadane.getEndIndex());
+    }
+
+    @Test
+    void testNearlySortedArrayPositive() {
+        // Array is mostly sorted but with a few elements out of place
+        int[] arr = {1, 2, 4, 3, 5, 7, 6, 8, 10, 9};
+        assertEquals(55, kadane.findMaxSubarraySum(arr));
+        assertEquals(0, kadane.getStartIndex());
+        assertEquals(9, kadane.getEndIndex());
+    }
+
     // Performance Test with Large Input
     @Test
     void testLargeInput() {
@@ -87,6 +105,53 @@ class KadaneTest {
         tracker.stopTimer();
         
         assertTrue(result >= -100);
+        assertTrue(tracker.getExecutionTimeMillis() < 1000); 
+    }
+
+    // Performance test with large sorted array
+    @Test
+    void testLargeSortedArray() {
+        int size = 10000;
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i++) {
+            arr[i] = i;
+        }
+        
+        tracker.startTimer();
+        int result = kadane.findMaxSubarraySum(arr);
+        tracker.stopTimer();
+        
+        assertEquals((size - 1) * size / 2, result); // Sum of arithmetic sequence
+        assertEquals(0, kadane.getStartIndex());
+        assertEquals(size - 1, kadane.getEndIndex());
+        assertTrue(tracker.getExecutionTimeMillis() < 1000);
+    }
+
+    // Performance test with large nearly-sorted array
+    @Test
+    void testLargeNearlySortedArray() {
+        int size = 10000;
+        int[] arr = new int[size];
+        // Create sorted array with 5% elements swapped
+        for (int i = 0; i < size; i++) {
+            arr[i] = i;
+        }
+        Random random = new Random(42);
+        int swaps = size / 20; // 5% of elements
+        for (int i = 0; i < swaps; i++) {
+            int pos1 = random.nextInt(size);
+            int pos2 = random.nextInt(size);
+            // Swap
+            int temp = arr[pos1];
+            arr[pos1] = arr[pos2];
+            arr[pos2] = temp;
+        }
+        
+        tracker.startTimer();
+        int result = kadane.findMaxSubarraySum(arr);
+        tracker.stopTimer();
+        
+        assertTrue(result > 0);
         assertTrue(tracker.getExecutionTimeMillis() < 1000);
     }
 }
